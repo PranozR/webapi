@@ -139,11 +139,11 @@ server.post('/patients', function (req, res, next) {
 		return next(new errors.BadRequestError('email must be supplied'));
 	}
 	if (req.body.phone_number === undefined) {
-		return next(new errors.BadRequestError('phone number must be supplied'));
+		return next(new errors.BadRequestError('phone_number must be supplied'));
 	}
 	if (req.body.house_address === undefined) {
 		// If there are any errors, pass them to next in the correct format
-		return next(new errors.BadRequestError('house address must be supplied'));
+		return next(new errors.BadRequestError('house_address must be supplied'));
 	}
 
 	let new_patient = new PatientModel({
@@ -190,19 +190,19 @@ server.del('/patients/:id', function (req, res, next) {
 server.put('/patients/:id', function (req, res, next) {
 	const body = JSON.parse(req.body);
 
-	if (req.body.name === undefined) {
+	if (body.name === undefined) {
 		return next(new errors.BadRequestError('name must be supplied'));
 	}
-	if (req.body.age === undefined) {
+	if (body.age === undefined) {
 		return next(new errors.BadRequestError('age must be supplied'));
 	}
-	if (req.body.email === undefined) {
+	if (body.email === undefined) {
 		return next(new errors.BadRequestError('email must be supplied'));
 	}
-	if (req.body.phone_number === undefined) {
+	if (body.phone_number === undefined) {
 		return next(new errors.BadRequestError('phone number must be supplied'));
 	}
-	if (req.body.house_address === undefined) {
+	if (body.house_address === undefined) {
 		// If there are any errors, pass them to next in the correct format
 		return next(new errors.BadRequestError('house address must be supplied'));
 	}
